@@ -1,0 +1,6 @@
+module Pods_collyde {
+  umbrella header "Pods-collyde-umbrella.h"
+
+  export *
+  module * { export * }
+}
