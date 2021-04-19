@@ -1,5 +1,4 @@
 export const COLLYDE_LOGO = require('../../assets/icons/logo.png');
-export const SPLASH_SCREEN = require('../../assets/mavericksImages/splash.png');
 export const DEFUALT_PROFILE = require(`../../assets/images/default_profile.png`);
 export const DEFUALT_PROFILE_FACEBOOK = require(`../../assets/images/facebook_default_profile.jpg`);
 export const VERIFIED_ICON = require(`../../assets/icons/tick.png`)

@@ -32,82 +32,10 @@
               "client_type": 3
             },
             {
-              "client_id": "170647214018-kjcvrl31lh2mn4s16mr1v6s6hg794c86.apps.googleusercontent.com",
+              "client_id": "170647214018-u7vpagipki331j7kiqvdrk667a18hkdp.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.collyde.app.staging"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:170647214018:android:80cad62941c32b9700a85b",
-        "android_client_info": {
-          "package_name": "com.collyde.app.staging"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "170647214018-071joii7m5ak5a3pta1ncls3n3jggps2.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAtr_ay6YmHcmUEfK86z-jRjCj4gTEKuX4"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "170647214018-071joii7m5ak5a3pta1ncls3n3jggps2.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "170647214018-kjcvrl31lh2mn4s16mr1v6s6hg794c86.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.collyde.app.staging"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:170647214018:android:fa13d65e41e85db200a85b",
-        "android_client_info": {
-          "package_name": "com.collyde.mavericks.app"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "170647214018-071joii7m5ak5a3pta1ncls3n3jggps2.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAtr_ay6YmHcmUEfK86z-jRjCj4gTEKuX4"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "170647214018-071joii7m5ak5a3pta1ncls3n3jggps2.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "170647214018-kjcvrl31lh2mn4s16mr1v6s6hg794c86.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.collyde.app.staging"
+                "bundle_id": "com.collyde.app"
               }
             }
           ]

@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
         borderRadius: _scaleText(40).fontSize,
         overflow: 'hidden',
         borderWidth: 2,
-        borderColor: '#00538C',
+        borderColor: '#03A7ED',
         justifyContent: 'center'
     },
     profileImg: {

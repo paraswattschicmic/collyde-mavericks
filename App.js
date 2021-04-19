@@ -31,6 +31,7 @@ const App = () => {
 
   useEffect(() => {
     AppState.addEventListener('change', _handleAppStateChange);
+    registerAppWithFCM()
   }, [])
 
   useEffect(() => {
@@ -53,6 +54,11 @@ const App = () => {
       }
     });
   }, []);
+
+  async function registerAppWithFCM() {
+    console.log(">>>> registerAppWithFCM")
+    await messaging().registerDeviceForRemoteMessages();
+  }
 
   const onRemoteNotification = (notification) => {
     //console.log('iOS on CLick Notification Data=============>', JSON.stringify(notification))

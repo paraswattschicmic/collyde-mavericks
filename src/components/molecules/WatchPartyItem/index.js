@@ -7,7 +7,6 @@ import {
     STATUS_BAR_PRIMARY_COLOR,
     LINE_COLOR,
     JOIN_BUTTON_COLOR,
-    JOIN_BUTTON_NEW_COLOR,
     TIME_CONTENT_COLOR,
     DEFUALT_PROFILE,
     DEFUALT_PROFILE_FACEBOOK,
@@ -261,7 +260,7 @@ const WatchPartyItem = ({
                             <CustomButton
                                 label={TEXT_CONST.JOIN}
                                 labelStyle={{ fontSize: _scaleText(22).fontSize, fontWeight: '500' }}
-                                containerStyle={{ backgroundColor: JOIN_BUTTON_NEW_COLOR, height: _scaleText(45).fontSize, flex: 1 }}
+                                containerStyle={{ backgroundColor: JOIN_BUTTON_COLOR, height: _scaleText(45).fontSize, flex: 1 }}
                                 onPress={onJoinPress}
                             />
                         </View>

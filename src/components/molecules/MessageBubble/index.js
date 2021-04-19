@@ -7,8 +7,7 @@ import { ImageItem } from '../ImageItem';
 import {
     _scaleText,
     COLLYDE_PRIMARY_BLUE_COLOR,
-    COLLYDE_MESSAGE_BUBBLE_BACKGROUND_COLOR,
-    COLLYDE_MESSAGE_BUBBLE_BACKGROUND_OTHER_NEW_COLOR,COLLYDE_MESSAGE_BUBBLE_BACKGROUND_NEW_COLOR, TEXT_CONST
+    COLLYDE_MESSAGE_BUBBLE_BACKGROUND_COLOR, TEXT_CONST
 } from '../../../shared';
 import Icon from 'react-native-vector-icons/AntDesign';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -162,7 +161,7 @@ export class MessageBubble extends Component {
             otherUserBubble: {
                 flexDirection: "row",
                 alignSelf: "flex-start",
-                backgroundColor: COLLYDE_MESSAGE_BUBBLE_BACKGROUND_OTHER_NEW_COLOR,
+                backgroundColor: COLLYDE_MESSAGE_BUBBLE_BACKGROUND_COLOR,
                 fontSize: _scaleText(14).fontSize,
                 borderRadius: _scaleText(10).fontSize,
                 padding: _scaleText(10).fontSize,
@@ -201,7 +200,7 @@ export class MessageBubble extends Component {
             currentUserBubble: {
                 flexDirection: "row",
                 alignSelf: 'flex-end',
-                backgroundColor: COLLYDE_MESSAGE_BUBBLE_BACKGROUND_NEW_COLOR,
+                backgroundColor: COLLYDE_PRIMARY_BLUE_COLOR,
                 fontSize: _scaleText(14).fontSize,
                 borderRadius: _scaleText(10).fontSize,
                 padding: _scaleText(10).fontSize,
@@ -304,7 +303,7 @@ export class MessageBubble extends Component {
                                         <View style={{ flexDirection: 'row', alignContent: 'flex-end', alignItems: 'flex-end', justifyContent: 'flex-end' }}>
                                             {!this.props.isAdmin && !this.props.isUserBanned && _renderTrophy()}
                                             <View
-                                                style={[_isImage(this.props) ? styles.currentUserBubbleImage : styles.currentUserBubble, this.props.message && this.props.message.message && (this.props.message.message.includes('http') || this.props.message.message.includes('www.')) ? { paddingVertical: 0, backgroundColor: COLLYDE_MESSAGE_BUBBLE_BACKGROUND_NEW_COLOR, borderWidth: 1, borderColor: '#d9d9d9', padding: 0, paddingLeft: 0 } : null]}
+                                                style={[_isImage(this.props) ? styles.currentUserBubbleImage : styles.currentUserBubble, this.props.message && this.props.message.message && (this.props.message.message.includes('http') || this.props.message.message.includes('www.')) ? { paddingVertical: 0, backgroundColor: COLLYDE_MESSAGE_BUBBLE_BACKGROUND_COLOR, borderWidth: 1, borderColor: '#d9d9d9', padding: 0, paddingLeft: 0 } : null]}
                                             >
                                                 {this._renderMessageItem(this.props.message)}
                                             </View>

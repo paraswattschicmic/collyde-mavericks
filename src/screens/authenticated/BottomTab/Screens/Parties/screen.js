@@ -30,7 +30,6 @@ import messaging from '@react-native-firebase/messaging';
 import { CommunityGuidelinesContent } from '../../../../../components/molecules/CommunityGuidelinesContent';
 import FontAwsomeIcon from 'react-native-vector-icons/FontAwesome5';
 import JoinPasswordModal from '../../../../../components/molecules/JoinPasswordModal';
-import { Button } from 'react-native';
 
 const THRESHOLD = 100;
 
@@ -65,7 +64,6 @@ const Parties = ({
   const [guidelinesmoreInfoVisibile, setGuidelinesmoreInfoVisibile] = useState(false);
   const [selectedItem, setSelectedItem] = useState({});
   var refReloadFlag = React.useRef(reloadFlag);
- 
 
   //const socket = socketIO(`${PREFIX_URL}${'/?authToken='}${authToken}`);
   //const socket = io(`${PREFIX_URL}${'/?authToken='}${authToken}`);
@@ -73,7 +71,6 @@ const Parties = ({
    * Update refChatRooms ( Reffrence of State chatRooms )
    */
   useEffect(() => {
-    
     refReloadFlag.current = reloadFlag;
   }, [reloadFlag]);
 
@@ -81,7 +78,6 @@ const Parties = ({
    * Get Watch Parties Use Effect
    */
   useEffect(() => {
-
     /*   // 1: Component is mounted off-screen */
     InteractionManager.runAfterInteractions(() => {
       /*     // 2: Component is done animating */
@@ -345,7 +341,6 @@ const Parties = ({
    * 1.) In RefreshControl "() => { watchParties && watchParties.length && watchParties.length > 0 ? getWatchParties(true) : getWatchParties(false)" represents that if the list is empty then show only main loader and if list has data then show refresing loader
    */
   return (
-   
     <ScreenHOC>
       <Text style={styles.title}>{TEXT_CONST.WATCH_PARTIES}</Text>
       {(!loadedFlagComplete || !didFinishInitialAnimation) && (

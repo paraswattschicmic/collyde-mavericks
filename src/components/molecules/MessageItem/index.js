@@ -17,7 +17,7 @@ const TextItem = props => {
                     // paddingRight: _scaleText(30).fontSize,
                     // marginRight: _scaleText(15).fontSize,
                     fontSize: _scaleText(17).fontSize,
-                    color: props.isUser ? '#000000'  : '#FFFFFF'
+                    color: props.isUser ? 'white' : props.isAdmin ? 'white' : '#424950'
                 }}
             >{props.message}</Text>
         </View>
