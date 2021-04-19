@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.collyde.app</string>
+	<string>com.collyde.mavericks.app</string>
 	<key>PROJECT_ID</key>
 	<string>collyde-revamped</string>
 	<key>STORAGE_BUCKET</key>
