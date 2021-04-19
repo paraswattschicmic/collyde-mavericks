@@ -107,6 +107,7 @@ export const OPEN_CAMERA = ({ mediaType = 'photo' }) => {
 export const GET_FCM_TOKEN = () => {
 
     return messaging().getToken().then(token => {
+        console.log(">>>> FCM Token",token);
         return token;
     });
 }

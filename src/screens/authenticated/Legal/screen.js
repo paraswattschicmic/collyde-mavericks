@@ -1,6 +1,16 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, KeyboardAvoidingView, Platform, Text, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import Icon from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import { ScreenHOC } from '../../../components';
@@ -22,44 +32,52 @@ const Legal = ({
     const startupEle = startupInfo.map((item) => <Text key={`${item}-startup`} style={styles.contentText}>{item}</Text>);
     const otherRulesEle = otherRules.map((item) => <Text key={`${item}-otherRule`} style={styles.contentText}>{item}</Text>);
     return (
-        <ScreenHOC>
-            <TouchableOpacity
-                onPress={() => navigation.goBack()}
-                style={{
-                    width: scaleSizeW(80),
-                    height: scaleSizeW(80),
-                    justifyContent: 'center',
-                    position: 'absolute',
-                    marginTop: -scaleSizeH(75),
-                }}
-            >
-                <Icon
-                    name={ICONS_NAMES.ICON_BACK}
-                    color={JOIN_BUTTON_COLOR}
-                    style={{
-                        alignSelf: 'flex-start',
-                        padding: 0,
-                        marginLeft: scaleSizeW(15),
-                    }}
-                    size={setSpText(50)}
-                />
-            </TouchableOpacity>
-            <SafeAreaView style={styles.container}>
-
-                <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-                    <Text style={styles.legalTitle}>{legalObj.title_1}</Text>
-                    <Text style={styles.legalTitle}>{legalObj.title_2}</Text>
-                    <Text style={styles.contentTitle}>General Terms</Text>
-                    {generalTermsEle}
-                    <Text style={styles.contentTitle}>Privacy</Text>
-                    {privacyEle}
-                    <Text style={styles.contentTitle}>Startup Info</Text>
-                    {startupEle}
-                    <Text style={styles.contentTitle}>Other Rules & Compliance</Text>
-                    {otherRulesEle}
-                </ScrollView>
-            </SafeAreaView>
-     </ScreenHOC>
+      <ScreenHOC>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={{
+            width: scaleSizeW(80),
+            height: scaleSizeW(80),
+            justifyContent: "center",
+            position: "absolute",
+            marginTop: -scaleSizeH(75),
+          }}
+        >
+          {/* <Icon
+            name={ICONS_NAMES.ICON_BACK}
+            color={JOIN_BUTTON_COLOR}
+            style={{
+              alignSelf: "flex-start",
+              padding: 0,
+              marginLeft: scaleSizeW(15),
+            }}
+            size={setSpText(50)}
+          /> */}
+          <Image
+            resizeMode="contain"
+            style={{
+              alignSelf: "flex-start",
+              padding: 0,
+              marginLeft: scaleSizeW(15),
+            }}
+            source={require("../../../assets/icons/back_button.png")}
+          ></Image>
+        </TouchableOpacity>
+        <SafeAreaView style={styles.container}>
+          <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+            <Text style={styles.legalTitle}>{legalObj.title_1}</Text>
+            <Text style={styles.legalTitle}>{legalObj.title_2}</Text>
+            <Text style={styles.contentTitle}>General Terms</Text>
+            {generalTermsEle}
+            <Text style={styles.contentTitle}>Privacy</Text>
+            {privacyEle}
+            <Text style={styles.contentTitle}>Startup Info</Text>
+            {startupEle}
+            <Text style={styles.contentTitle}>Other Rules & Compliance</Text>
+            {otherRulesEle}
+          </ScrollView>
+        </SafeAreaView>
+      </ScreenHOC>
     );
 };
 

@@ -3,18 +3,19 @@
 import React, { useState, useEffect } from 'react';
 import qs from 'qs';
 import {
-    View,
-    StyleSheet,
-    KeyboardAvoidingView,
-    Platform,
-    Text,
-    SafeAreaView,
-    ScrollView,
-    TouchableOpacity,
-    TextInput,
-    TextField,
-    Linking,
-} from 'react-native';
+  View,
+  StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  TouchableOpacity,
+  TextInput,
+  TextField,
+  Linking,
+  Image,
+} from "react-native";
 import { Picker } from '@react-native-community/picker';
 import axios from 'axios';
 import Icon from 'react-native-vector-icons/Entypo';
@@ -121,110 +122,125 @@ ${content}
 
 
     return (
-        <ScreenHOC>
-            <TouchableOpacity
-                onPress={() => navigation.goBack()}
-                style={{
-                    width: scaleSizeW(80),
-                    height: scaleSizeW(80),
-                    justifyContent: 'center',
-                    position: 'absolute',
-                    marginTop: -scaleSizeH(75),
-                }}
+      <ScreenHOC>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={{
+            width: scaleSizeW(80),
+            height: scaleSizeW(80),
+            justifyContent: "center",
+            position: "absolute",
+            marginTop: -scaleSizeH(75),
+          }}
+        >
+          {/* <Icon
+            name={ICONS_NAMES.ICON_BACK}
+            color={JOIN_BUTTON_COLOR}
+            style={{
+              alignSelf: "flex-start",
+              padding: 0,
+              marginLeft: scaleSizeW(15),
+            }}
+            size={setSpText(50)}
+          /> */}
+          <Image
+            resizeMode="contain"
+            style={{
+              alignSelf: "flex-start",
+              padding: 0,
+              marginLeft: scaleSizeW(15),
+            }}
+            source={require("../../../assets/icons/back_button.png")}
+          ></Image>
+        </TouchableOpacity>
+        <SafeAreaView style={styles.container}>
+          <View style={styles.scrollView} showsVerticalScrollIndicator={false}>
+            <Text style={styles.supportTitle}>{supportObj.title}</Text>
+            <Picker
+              selectedValue={topicValue}
+              style={{ width: scaleSizeW(400), marginTop: -scaleSizeH(20) }}
+              onValueChange={(itemValue, itemIndex) => setTopicValue(itemValue)}
+              mode="dropdown"
             >
-                <Icon
-                    name={ICONS_NAMES.ICON_BACK}
-                    color={JOIN_BUTTON_COLOR}
-                    style={{
-                        alignSelf: 'flex-start',
-                        padding: 0,
-                        marginLeft: scaleSizeW(15),
-                    }}
-                    size={setSpText(50)}
-                />
+              <Picker.Item label="Technical issue" value="Technical issue" />
+              <Picker.Item label="Suggest an idea" value="Suggest an idea" />
+              <Picker.Item label="Ask a question" value="Ask a question" />
+            </Picker>
+            <TextInput
+              style={{
+                height: scaleSizeH(50),
+                borderColor: "lightgray",
+                borderWidth: 1,
+                padding: scaleSizeH(10),
+                marginLeft: scaleSizeH(20),
+                marginRight: scaleSizeH(20),
+              }}
+              onChangeText={(text) => setEmail(text)}
+              value={email}
+              placeholder="Email so we can response"
+              placeholderTextColor="gray"
+              textAlign="left"
+              textContentType="emailAddress"
+              autoCompleteType="email"
+            />
+            <TextInput
+              style={{
+                height: scaleSizeH(250),
+                borderColor: "lightgray",
+                borderWidth: 1,
+                paddingLeft: scaleSizeH(10),
+                marginTop: scaleSizeH(15),
+                marginLeft: scaleSizeH(20),
+                marginRight: scaleSizeH(20),
+                // backgroundColor: 'red',
+              }}
+              onChangeText={(text) => setContent(text)}
+              value={content}
+              placeholder="Let us know what happened"
+              placeholderTextColor="gray"
+              textAlign="left"
+              multiline
+            />
+            <Text
+              style={{
+                color: "red",
+                // fontWeight: '600',
+                fontSize: setSpText(16),
+                textAlign: "left",
+                marginLeft: scaleSizeH(20),
+                marginTop: scaleSizeH(5),
+              }}
+            >
+              {emailErr}
+            </Text>
+            <Text
+              style={{
+                color: submitSuccessMessage ? JOIN_BUTTON_COLOR : "red",
+                // fontWeight: '600',
+                fontSize: setSpText(16),
+                textAlign: "left",
+                marginLeft: scaleSizeH(20),
+                marginTop: scaleSizeH(5),
+              }}
+            >
+              {submitSuccessMessage ? "Thank you for your request we will response as soon as possible." : contentErr}
+            </Text>
+            <TouchableOpacity style={styles.supportSubmit} onPress={() => onSendEmail()}>
+              <Text
+                style={{
+                  color: "white",
+                  fontWeight: "600",
+                  fontSize: setSpText(25),
+                  textAlign: "center",
+                  lineHeight: scaleSizeH(40),
+                }}
+              >
+                Submit
+              </Text>
             </TouchableOpacity>
-            <SafeAreaView style={styles.container}>
-
-                <View style={styles.scrollView} showsVerticalScrollIndicator={false}>
-                    <Text style={styles.supportTitle}>{supportObj.title}</Text>
-                    <Picker
-                        selectedValue={topicValue}
-                        style={{ width: scaleSizeW(400), marginTop: -scaleSizeH(20) }}
-                        onValueChange={(itemValue, itemIndex) => setTopicValue(itemValue)}
-                        mode="dropdown"
-                    >
-                        <Picker.Item label="Technical issue" value="Technical issue" />
-                        <Picker.Item label="Suggest an idea" value="Suggest an idea" />
-                        <Picker.Item label="Ask a question" value="Ask a question" />
-                    </Picker>
-                <TextInput
-                    style={{
-                        height: scaleSizeH(50),
-                        borderColor: 'lightgray',
-                        borderWidth: 1,
-                        padding: scaleSizeH(10),
-                        marginLeft: scaleSizeH(20),
-                        marginRight: scaleSizeH(20),
-                    }}
-                    onChangeText={text => setEmail(text)}
-                    value={email}
-                    placeholder="Email so we can response"
-                    placeholderTextColor="gray"
-                    textAlign="left"
-                    textContentType="emailAddress"
-                    autoCompleteType="email"
-                />
-                <TextInput
-                    style={{
-                        height: scaleSizeH(250),
-                        borderColor: 'lightgray',
-                        borderWidth: 1,
-                        paddingLeft: scaleSizeH(10),
-                        marginTop: scaleSizeH(15),
-                        marginLeft: scaleSizeH(20),
-                        marginRight: scaleSizeH(20),
-                        // backgroundColor: 'red',
-                    }}
-                    onChangeText={text => setContent(text)}
-                    value={content}
-                    placeholder="Let us know what happened"
-                    placeholderTextColor="gray"
-                    textAlign="left"
-                    multiline
-                />
-                <Text style={{
-                    color: 'red',
-                    // fontWeight: '600',
-                    fontSize: setSpText(16),
-                    textAlign: 'left',
-                    marginLeft: scaleSizeH(20),
-                    marginTop: scaleSizeH(5),
-                }}>{emailErr}</Text>
-                <Text style={{
-                    color: submitSuccessMessage ? JOIN_BUTTON_COLOR : 'red',
-                    // fontWeight: '600',
-                    fontSize: setSpText(16),
-                    textAlign: 'left',
-                    marginLeft: scaleSizeH(20),
-                    marginTop: scaleSizeH(5),
-                }}>{submitSuccessMessage
-                    ? 'Thank you for your request we will response as soon as possible.'
-                    : contentErr}</Text>
-                <TouchableOpacity
-                    style={styles.supportSubmit}
-                    onPress={() => onSendEmail()}
-                >
-                    <Text style={{
-                        color: 'white',
-                        fontWeight: '600',
-                        fontSize: setSpText(25),
-                        textAlign: 'center',
-                        lineHeight: scaleSizeH(40),
-                    }}>Submit</Text>
-                </TouchableOpacity>
-                </View>
-            </SafeAreaView>
-     </ScreenHOC>
+          </View>
+        </SafeAreaView>
+      </ScreenHOC>
     );
 };
 
