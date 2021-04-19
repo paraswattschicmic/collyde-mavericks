@@ -50,30 +50,30 @@ const BottomTab = ({
 
     return (
         <Tab.Navigator
-            lazy
-            tabBarOptions={{
-                activeTintColor: JOIN_BUTTON_COLOR,
-                keyboardHidesTabBar: true,
-                labelStyle: { textAlignVertical: 'center', fontSize: _scaleText(14).fontSize, marginBottom: _scaleText(10).fontSize },
-                style: { minHeight: _scaleText(90).fontSize, borderColor: 'transparent', borderTopColor: STATUS_BAR_PRIMARY_COLOR, borderWidth: _scaleText(1).fontSize, alignItems: 'center', paddingVertical: _scaleText(5).fontSize }
-            }}
-        >
-            <Tab.Screen name={BOTTOM_TABS.PARTIES} component={PartiesTab} options={{
-                tabBarIcon: ({ color, size }) => (
-                    <Icon name={ICONS_NAMES.ICON_BOTTOM_WATCH_PARTIES} color={color} size={_scaleText(30).fontSize} />
-                ),
-            }} />
-            <Tab.Screen name={BOTTOM_TABS.ROOMS} component={RoomsTab} options={{
-                tabBarIcon: ({ color, size }) => (
-                    <MaterialIcon name={ICONS_NAMES.ICON_BOTTOM_ROOMS} color={color} size={_scaleText(30).fontSize} />
-                )
-            }} />
-            <Tab.Screen name={BOTTOM_TABS.PROFILE} component={ProfileTab} options={{
-                tabBarIcon: ({ color, size }) => (
-                    <Feather name={ICONS_NAMES.ICON_BOTTOM_PROFILE} color={color} size={_scaleText(30).fontSize} />
-                )
-            }} />
-        </Tab.Navigator>
+        lazy
+        tabBarOptions={{
+            activeTintColor: JOIN_BUTTON_COLOR,
+            keyboardHidesTabBar: true,
+            labelStyle: { textAlignVertical: 'center', fontSize: _scaleText(14).fontSize, marginBottom: _scaleText(10).fontSize },
+            style: { minHeight: _scaleText(90).fontSize, borderColor: 'transparent', borderTopColor: STATUS_BAR_PRIMARY_COLOR, borderWidth: _scaleText(1).fontSize, alignItems: 'center', paddingVertical: _scaleText(5).fontSize }
+        }}
+    >
+        <Tab.Screen name={BOTTOM_TABS.PARTIES} component={PartiesTab} options={{
+            tabBarIcon: ({ color, size }) => (
+                <Icon name={ICONS_NAMES.ICON_BOTTOM_WATCH_PARTIES} color={color} size={_scaleText(30).fontSize} />
+            ),
+        }} />
+        <Tab.Screen name={BOTTOM_TABS.ROOMS} component={RoomsTab} options={{
+            tabBarIcon: ({ color, size }) => (
+                <MaterialIcon name={ICONS_NAMES.ICON_BOTTOM_ROOMS} color={color} size={_scaleText(30).fontSize} />
+            )
+        }} />
+        <Tab.Screen name={BOTTOM_TABS.PROFILE} component={ProfileTab} options={{
+            tabBarIcon: ({ color, size }) => (
+                <Feather name={ICONS_NAMES.ICON_BOTTOM_PROFILE} color={color} size={_scaleText(30).fontSize} />
+            )
+        }} />
+    </Tab.Navigator>
     );
 }
 /**

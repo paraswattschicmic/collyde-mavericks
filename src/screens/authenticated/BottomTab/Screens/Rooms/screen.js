@@ -238,7 +238,7 @@ const Rooms = ({
             />
           }
           ListEmptyComponent={
-            !loading && !refreshing ? (
+            true && true ? (
               <View
                 style={{
                   flex: 1,

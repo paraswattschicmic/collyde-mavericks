@@ -10,9 +10,8 @@ const Header = ({
         <View style={[styles.container, headerContainer]}>
             <Image source={COLLYDE_LOGO} resizeMode={'contain'} style={{
                 marginTop: scaleSizeH(10),
-                marginLeft: scaleSizeW(30),
-                height: scaleSizeH(70),
-                width: scaleSizeW(414),
+                height: scaleSizeH(50),
+                width: scaleSizeW(50),
             }} />
         </View>
     );

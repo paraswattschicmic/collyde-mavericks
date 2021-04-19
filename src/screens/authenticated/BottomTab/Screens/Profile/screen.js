@@ -135,11 +135,13 @@ const Profile = ({
         /**
          * TODO: Wrong Implementation ( you can't use user data from redux here because you just get the data and using it but redux might take some time to update store because it updates after a complete thread so you should set data in redux but here use data which we are getting in success (if not getting data here then paas data from saga ))  -- Ankit Minhas
          */
+        console.log('printConsole',data)
         updatePictureUrl(userData.pictureUrl);
         setFirstName();
         setLoading({ ...isLoading, profileLoaded: true });
 
         if (userData.pictureUrl && userData.pictureUrl == '') {
+          console.log('printConsole',"entered")
           setLoading({
             ...isLoading,
             profileLoaded: true,

@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
         borderRadius: _scaleText(40).fontSize,
         overflow: 'hidden',
         borderWidth: 2,
-        borderColor: '#03A7ED',
+        borderColor: '#00538C',
         justifyContent: 'center'
     },
     verifiedIcon: {

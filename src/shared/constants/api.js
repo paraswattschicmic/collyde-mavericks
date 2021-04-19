@@ -1,7 +1,7 @@
 // const LIVE_URL = 'http://15.207.65.54:3001';
 //http://df6abefbc3ab.ngrok.io
 // const STAGING_URL = 'http://15.207.65.54:3000';
-const STAGING_URL = 'https://staging.api.getcollyde.com';
+const STAGING_URL = "https://mavericks.api.getcollyde.com";
 //const STAGING_URL = 'http://b52291be6e65.ngrok.io';
 
 export const BASE_URL = STAGING_URL;

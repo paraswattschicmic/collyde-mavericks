@@ -22,7 +22,7 @@ const Splash = ({
         });
         console.log('authToken',authToken)
         authToken && updateAuthToken(authToken)
-        // navigation.replace(COMPLETE_PROFILE_SCREEN)
+          // navigation.replace(COMPLETE_PROFILE_SCREEN)
         navigation.replace((authToken) ? DASHBOARD_BOTTOM_TAB : INITIAL_SIGNUP_SCREEN)
         setTimeout(() => {
             SplashScreen.hide();

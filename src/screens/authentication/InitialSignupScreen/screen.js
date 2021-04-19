@@ -41,7 +41,6 @@ import Geocoder from 'react-native-geocoding';
 Geocoder.init(Platform.OS == 'ios' ? "AIzaSyAuLxrKGZ-L0eDV78q9E6dxRGKFCXVjyKk" : 'AIzaSyDJu4McaL5WnLYi-GmFf1LKA-cS6mTWK4c');
 import { FaceBookLogin } from 'react-native-fbsdk';
 import SignUpButton from '../../../components/atoms/SignUpButton';
-import { scaleText } from 'react-native-text/lib/commonjs';
 
 const { height } = Dimensions.get('window');
 let authRequestResponse = null;
@@ -356,7 +355,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: -scaleSizeH(120),
     marginBottom: scaleSizeH(20),
-    // marginLeft: scaleSizeW(30),
     alignItems: 'center',
   },
   logo: {
