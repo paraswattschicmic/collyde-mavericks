@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Entypo';
 import { APP_MESSAGES, _checkValidPhoneNumber } from '../../../shared'
@@ -236,72 +236,70 @@ const SignUpMobile = ({
     useEffect(() => {
     }, []);
     return (
-        <ScreenHOC>
-            <TouchableOpacity
-                onPress={() => {
-                    if (screenMode == eDisplayMode.VerifyMobile) {
-                        setScreenMode(eDisplayMode.EnterMobile)
-                    }
-                    else {
-                        navigation.goBack()
-                    }
-                }}
-                style={{
-                    width: scaleSizeW(80),
-                    height: scaleSizeW(80),
-                    justifyContent: 'center',
-                    position: 'absolute',
-                    marginTop: -scaleSizeH(75),
-                }}
-            >
-                <Icon
-                    name={ICONS_NAMES.ICON_BACK}
-                    color={JOIN_BUTTON_COLOR}
-                    style={{
-                        alignSelf: 'flex-start',
-                        padding: 0,
-                        marginLeft: scaleSizeW(15),
-                    }}
-                    size={setSpText(50)}
-                />
-            </TouchableOpacity>
-            <SafeAreaView style={styles.safeArea}>
-                {
-                    screenMode == eDisplayMode.EnterMobile
-                        ?
-                        <EnterMobileNumber
-                            mobileNumber={mobileNumber}
-                            countryCode={countryCode}
-                            onCountryChange={setCountryCode}
-                            onChangeNumber={_onChangeText}
-                            onSubmit={_onRequestOTP}
-                        ></EnterMobileNumber>
-                        :
-                        screenMode == eDisplayMode.VerifyMobile
-                            ?
-                            <EnterOTP
-                                verificationCode={verificationCode}
-                                onCodeChanged={_onCodeText}
-                                onSubmit={_onSubmitCode}
-                                resendCodeText={resendCodeText}
-                                onResend={_onRequestOTP}
-                            >
-                            </EnterOTP>
-                            :
-                            screenMode == eDisplayMode.EnterEmail
-                                ?
-                                <EnterEmail
-                                    email={email}
-                                    onEmailChange={_onEmailChanged}
-                                    onSubmit={_onSubmitEmail}
-                                    submitIsClicked={submitIsClicked}
-                                ></EnterEmail>
-                                :
-                                null
-                }
-
-            </SafeAreaView>
-        </ScreenHOC>
+      <ScreenHOC>
+        <TouchableOpacity
+          onPress={() => {
+            if (screenMode == eDisplayMode.VerifyMobile) {
+              setScreenMode(eDisplayMode.EnterMobile);
+            } else {
+              navigation.goBack();
+            }
+          }}
+          style={{
+            width: scaleSizeW(80),
+            height: scaleSizeW(80),
+            justifyContent: "center",
+            position: "absolute",
+            marginTop: -scaleSizeH(75),
+          }}
+        >
+          {/* <Icon
+            name={ICONS_NAMES.ICON_BACK}
+            color={JOIN_BUTTON_COLOR}
+            style={{
+              alignSelf: "flex-start",
+              padding: 0,
+              marginLeft: scaleSizeW(15),
+            }}
+            size={setSpText(50)}
+          /> */}
+          <Image
+            resizeMode="contain"
+            style={{
+              alignSelf: "flex-start",
+              padding: 0,
+              marginLeft: scaleSizeW(15),
+            }}
+            source={require("../../../assets/icons/back_button.png")}
+          ></Image>
+        </TouchableOpacity>
+        <SafeAreaView style={styles.safeArea}>
+          {screenMode == eDisplayMode.EnterMobile ? (
+            <EnterMobileNumber
+              mobileNumber={mobileNumber}
+              countryCode={countryCode}
+              onCountryChange={setCountryCode}
+              onChangeNumber={_onChangeText}
+              onSubmit={_onRequestOTP}
+            ></EnterMobileNumber>
+          ) : screenMode == eDisplayMode.VerifyMobile ? (
+            <EnterOTP
+              verificationCode={verificationCode}
+              onCodeChanged={_onCodeText}
+              onSubmit={_onSubmitCode}
+              resendCodeText={resendCodeText}
+              onResend={_onRequestOTP}
+            ></EnterOTP>
+          ) : screenMode == eDisplayMode.EnterEmail ? (
+            <EnterEmail
+              email={email}
+              onEmailChange={_onEmailChanged}
+              onSubmit={_onSubmitEmail}
+              submitIsClicked={submitIsClicked}
+            ></EnterEmail>
+          ) : null}
+        </SafeAreaView>
+      </ScreenHOC>
     );
 };
 
