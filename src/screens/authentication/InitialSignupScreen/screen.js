@@ -22,8 +22,11 @@ import {
   TEXT_CONST,
   COLLYDE_LOGO,
   FACEBOOK_BUTTON_COLOR,
-  COMPLETE_PROFILE_SCREEN, SIGN_UP_MOBILE, COLLYDE_PRIMARY_BLUE_COLOR
-} from '../../../shared';
+  COMPLETE_PROFILE_SCREEN,
+  SIGN_UP_MOBILE,
+  COLLYDE_PRIMARY_BLUE_COLOR,
+  SIGNUP_BG,
+} from "../../../shared";
 import { _scaleText } from '../../../shared/services/utility';
 import { setSpText, scaleSizeH, scaleSizeW } from '../../../shared/services/screenStyle';
 import Toast from 'react-native-simple-toast';
@@ -42,7 +45,7 @@ Geocoder.init(Platform.OS == 'ios' ? "AIzaSyAuLxrKGZ-L0eDV78q9E6dxRGKFCXVjyKk" :
 import { FaceBookLogin } from 'react-native-fbsdk';
 import SignUpButton from '../../../components/atoms/SignUpButton';
 
-const { height } = Dimensions.get('window');
+const { height, width } = Dimensions.get('window');
 let authRequestResponse = null;
 
 const SignUpScreen = ({
@@ -207,47 +210,48 @@ const SignUpScreen = ({
    */
   return (
     <View style={styles.container}>
-      <Video
-        source={require('../../../assets/videos/signInPage/Sign_in_Video_Updated_Only_Opacity.mp4')}
+      {/* <Video
+        source={require("../../../assets/images/signUpBg.png")}
         style={styles.backgroundVideo}
         muted={true}
         repeat={true}
-        resizeMode={'cover'}
+        resizeMode={"cover"}
         rate={1.0}
-        ignoreSilentSwitch={'obey'}
-      />
-      <View style={styles.logoContainer}>
+        ignoreSilentSwitch={"obey"}
+      /> */}
+      <Image resizeMode="stretch" source={SIGNUP_BG} style={styles.backgroundImage}/>
+      {/* <View style={styles.logoContainer}>
         <Image resizeMode="contain" source={COLLYDE_LOGO} style={styles.logo} />
       </View>
-      <Text style={styles.collydeSlogan}>Never Watch Sports Alone</Text>
+      <Text style={styles.collydeSlogan}>Never Watch Sports Alone</Text> */}
       <View style={styles.buttonContainer}>
         <SignUpButton
           label={TEXT_CONST.SIGN_UP_FB}
           onPress={onSignupWithFacebook}
-          imgSrc={'facebook'}
+          imgSrc={"facebook"}
           imgSize={_scaleText(18).fontSize}
-          imgColor={'white'}
+          imgColor={"white"}
           // imgStyles={{ alignSelf: 'center', marginLeft: _scaleText(10).fontSize }}
           labelStyle={{
             fontSize: _scaleText(16).fontSize,
-            fontWeight: '500',
-            fontFamily: 'SFProText-Bold',
+            fontWeight: "500",
+            fontFamily: "SFProText-Bold",
           }}
           containerStyle={styles.signupButton}
         />
-        {Platform.OS === 'ios' && (
+        {Platform.OS === "ios" && (
           <SignUpButton
             label={TEXT_CONST.SIGN_UP_APPLE}
             onPress={onAppleButtonPress}
-            imgSrc={'apple'}
+            imgSrc={"apple"}
             imgSize={_scaleText(18).fontSize}
-            imgColor={'black'}
-            imgStyles={{ alignSelf: 'center', marginLeft: _scaleText(10).fontSize }}
+            imgColor={"black"}
+            imgStyles={{ alignSelf: "center", marginLeft: _scaleText(10).fontSize }}
             labelStyle={{
               fontSize: _scaleText(16).fontSize,
-              fontWeight: '500',
-              fontFamily: 'SFProText-Bold',
-              color: 'black',
+              fontWeight: "500",
+              fontFamily: "SFProText-Bold",
+              color: "black",
             }}
             containerStyle={styles.signupButtonApple}
           />
@@ -265,7 +269,7 @@ const SignUpScreen = ({
           //   onPress={() => onAppleButtonPress()}
           // />
         )}
-        {Platform.OS === 'ios' ?
+        {Platform.OS === "ios" ? (
           <Text
             style={styles.textStyleSignUpMobile}
             onPress={() => {
@@ -274,45 +278,39 @@ const SignUpScreen = ({
           >
             {TEXT_CONST.SIGN_UP_MOBILE}
           </Text>
-          :
+        ) : (
           <SignUpButton
             label={TEXT_CONST.SIGN_UP_MOBILE}
             onPress={() => {
               navigation.navigate(SIGN_UP_MOBILE);
             }}
-            imgSrc={'phone'}
+            imgSrc={"phone"}
             imgSize={_scaleText(18).fontSize}
-            imgColor={'white'}
-            imgStyles={{ alignSelf: 'center', marginLeft: _scaleText(10).fontSize }}
+            imgColor={"white"}
+            imgStyles={{ alignSelf: "center", marginLeft: _scaleText(10).fontSize }}
             labelStyle={{
               fontSize: _scaleText(16).fontSize,
-              fontWeight: '500',
-              fontFamily: 'SFProText-Bold',
-              color: 'white',
+              fontWeight: "500",
+              fontFamily: "SFProText-Bold",
+              color: "white",
             }}
             containerStyle={styles.signupButtonPhone}
           />
-        }
+        )}
 
         <Text style={styles.textStyle}>
           {TEXT_CONST.TermsAndConditions}
           <Text
             style={styles.underLineText}
-            onPress={() =>
-              Linking.openURL(
-                'https://www.getcollyde.com/collyde-terms-and-conditions',
-              )
-            }>
+            onPress={() => Linking.openURL("https://www.getcollyde.com/collyde-terms-and-conditions")}
+          >
             {TEXT_CONST.TERMS}
-          </Text>{' '}
-          and{' '}
+          </Text>{" "}
+          and{" "}
           <Text
             style={styles.underLineText}
-            onPress={() =>
-              Linking.openURL(
-                'https://www.getcollyde.com/collyde-terms-and-conditions',
-              )
-            }>
+            onPress={() => Linking.openURL("https://www.getcollyde.com/collyde-terms-and-conditions")}
+          >
             {TEXT_CONST.PRIVACY}
           </Text>
         </Text>
@@ -325,44 +323,54 @@ export default SignUpScreen;
 const styles = StyleSheet.create({
   backgroundVideo: {
     height: height,
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
-    alignItems: 'stretch',
+    alignItems: "stretch",
+    bottom: 0,
+    right: 0,
+  },
+  backgroundImage: {
+    height: height,
+    width: width,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    alignItems: "stretch",
     bottom: 0,
     right: 0,
   },
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.55)',
-    paddingVertical: '10%',
-    paddingHorizontal: '5%'
+    backgroundColor: "rgba(0,0,0,0.55)",
+    paddingVertical: "10%",
+    paddingHorizontal: "5%",
   },
   collydeSlogan: {
-    color: 'white',
+    color: "white",
     fontSize: setSpText(25),
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: -scaleSizeH(225),
-    fontWeight: '600',
-    fontStyle: 'italic'
+    fontWeight: "600",
+    fontStyle: "italic",
   },
   collydeSloganTogether: {
-    color: '#64d2ff',
-    textAlign: 'center',
+    color: "#64d2ff",
+    textAlign: "center",
   },
   logoContainer: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     marginTop: -scaleSizeH(120),
-    marginBottom: scaleSizeH(20),
-    alignItems: 'center',
+    marginBottom: "10%",
+    alignItems: "center",
   },
   logo: {
     width: scaleSizeW(120),
-    alignSelf: 'center',
+    alignSelf: "center",
   },
   buttonContainer: {
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
     marginBottom: scaleSizeH(20),
     flex: 1,
   },
@@ -371,44 +379,44 @@ const styles = StyleSheet.create({
     paddingVertical: _scaleText(0).fontSize,
     backgroundColor: FACEBOOK_BUTTON_COLOR,
     marginVertical: _scaleText(5).fontSize,
-    width: '100%',
+    width: "100%",
     height: _scaleText(40).fontSize,
     borderRadius: _scaleText(50).fontSize,
-    alignSelf: 'center'
+    alignSelf: "center",
   },
   signupButtonApple: {
     //paddingHorizontal: _scaleText(30).fontSize,
     paddingVertical: _scaleText(0).fontSize,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     marginVertical: _scaleText(5).fontSize,
-    width: '100%',
+    width: "100%",
     height: _scaleText(40).fontSize,
     borderRadius: _scaleText(50).fontSize,
-    alignSelf: 'center'
+    alignSelf: "center",
   },
   signupButtonPhone: {
     //paddingHorizontal: _scaleText(30).fontSize,
     paddingVertical: _scaleText(0).fontSize,
     backgroundColor: COLLYDE_PRIMARY_BLUE_COLOR,
     marginVertical: _scaleText(5).fontSize,
-    width: '100%',
+    width: "100%",
     height: _scaleText(40).fontSize,
     borderRadius: _scaleText(50).fontSize,
-    alignSelf: 'center'
+    alignSelf: "center",
   },
   textStyle: {
     fontSize: _scaleText(11).fontSize,
     marginTop: _scaleText(15).fontSize,
-    textAlign: 'center',
-    color: 'white',
+    textAlign: "center",
+    color: "white",
   },
   textStyleSignUpMobile: {
     fontSize: _scaleText(18).fontSize,
     marginVertical: _scaleText(5).fontSize,
-    textAlign: 'center',
-    color: 'white',
+    textAlign: "center",
+    color: "white",
   },
   underLineText: {
-    textDecorationLine: 'underline',
+    textDecorationLine: "underline",
   },
 });
