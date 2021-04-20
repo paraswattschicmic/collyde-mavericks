@@ -1,4 +1,4 @@
-package com.collyde.app;
+package com.collyde.mavericks.app;
 
 import androidx.multidex.MultiDexApplication;
 import android.content.Context;
