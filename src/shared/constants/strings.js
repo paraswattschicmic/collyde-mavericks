@@ -45,7 +45,7 @@ export const TEXT_CONST = {
   PARTY_STARTS_IN_FIFTEEN_MIN: 'Party starting in 15 mins!',
   COULD_NOT_LOAD_IMAGE: 'Could not load the file.',
   IS_GROUP_HOST: 'operator',
-  ENTER_MOBILE_TITLE: `What's yo phone number?`,
+  ENTER_MOBILE_TITLE: `What's your phone number?`,
   ENTER_EMAIL_TITLE: `Enter your email`,
   VERIFY_MOBILE_TITLE: `Verify your number`,
   ENTER_MOBILE_SUB_TITLE: `We protect our community by making sure everyone is real at Collyde.`,
